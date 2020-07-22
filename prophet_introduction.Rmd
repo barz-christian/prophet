@@ -1,0 +1,61 @@
+---
+title: "Forecasting at Scale"
+author: "Christian Barz"
+date: "`r lubridate::today()`"
+output:
+  beamer_presentation:
+    theme: "Berlin"
+    colortheme: "default"
+    toc: true
+    slide_level: 2
+    
+---
+
+# Prophet and Alternatives
+## Prophet library
+The Prophet library^[Taylor, Letham, Forecasting at scale, 2017, The American Statistician] is a model and a framework.
+
+- targets at non-experts with background business knowledge
+- less knowledge about time series is required
+- easy to configure
+- flexible for a wide range of business problems
+
+## Alternatives 
+
+The `forecast` package in `R` provides some alternative automated times series models, for example
+
+- `auto.arima`^[Hyndman, Khandakar et al. 2007, Automatic time series for forecasting: the
+forecast package for R], fits mutliple ARIMA models and take the best fit
+- `ets`^[Hyndman, Koehler., Snyder & Grose, 2002, `A state space framework
+for automatic forecasting using exponential smoothing methods'], fits mutliple exponential smoothing models and take the best fit
+- `snaive`^[De Livera, Hyndman. & Snyder, 2011, `A state space framework for
+automatic forecasting using exponential smoothing methods'], random walk model with seasonality
+
+
+# Generalized additive models
+
+# The trend model
+
+## Nonlinear Saturating growth
+
+## Linear trend with Changepoints
+
+## Automatic changepoint selection
+
+# The seasonal model
+
+## Fourier series
+
+# "Holidays and Events"
+
+# Stan model and fitting
+
+# Future work
+
+## Baysian models
+## L-BFGS
+## Marcov chain Monte Carlo
+
+
+# Further reading
+- [The textbook for forecast R-package, but with a lot of theory and practice](https://otexts.com/fpp2/)
