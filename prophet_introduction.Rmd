@@ -132,8 +132,24 @@ $$
 using the change points from above a piecewise linear model is given by
 
 $$
-g(t) :=  (k+a(t)^T \delta)*t +(m+a(t)^T\gamma)
+\begin{aligned}
+g(t) &= k(t)\cdot t + m(t) \\
+     &:= (k+a(t)^T \delta)*t +(m+a(t)^T\gamma)
+\end{aligned}
 $$
+
+## To do 
+
+- We have to fit the unknown parameters $k$, $m$, and $\delta$
+- recall Bayes theorem
+$$
+P(\delta | Data) = \frac{P(Data | \delta) \cdot P(\delta)}{P(Data)}
+$$
+
+where
+
+- $P(\delta | Data)$ is the conditional probability to observe $\delta$ given $Data$
+- $P(Data | \delta)$ is the likelihood, which can be interpreted as the probability to observe $Data$ given $\delta$
 
 ## Automatic changepoint selection
 
@@ -143,7 +159,7 @@ $$
 $$
 
 
-![LaPlace density function from wikipedia, here $\sigma = \delta$]("./data/Laplace-verteilung.png"){width=150px}
+![LaPlace density function from wikipedia, here $\sigma = \tau$]("./data/Laplace-verteilung.png"){width=150px}
 
 
 
