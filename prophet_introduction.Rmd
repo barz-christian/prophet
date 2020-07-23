@@ -127,16 +127,56 @@ $$
 
 Change points are automatically detected by putting a sparse prior on $\delta$, i.e.
 $$
-\delta_j ~ Laplace(0,\tau)
+\delta_j \sim Laplace(0,\tau)
 $$
-![]("./data/Laplace-verteilung.svg.png")
+
+
+![LaPlace density function from wikipedia, here $\sigma = \delta$]("./data/Laplace-verteilung.png"){width=150px}
+
 
 
 ## The seasonal model
 
+The seasonality is approximated by a (truncated) Fourier serie:
+
+$$
+s(t) = \sum_{i=1}^N(a_n\cos(\frac{2\pi it}{P}) + b_n\frac{2\pi it}{P}))
+$$
+where
+
+- P is the period in days, for example P =7 for weekly seasonality
+- N truncates the series and is a model parameter for the user to adjust the fitting
+
+## The seasonal model (fitting) 
+
+Fitting requires to estimate $2N$ parameters $\beta=(a_1,b_1,\ldots,a_N,b_N)$. 
+
+This is done by constructing a matrix of seasonality vectors for each $t$ in our historical and future data, e.g. for weekly seasonality and $N=3$
+
+$$
+X(t) := (\cos(\frac{2\pi (1) t}{7}),\ldots,\sin(\frac{2\pi (3) t}{7}))
+$$
+
+Hence the seasonal component is
+
+$$
+s(t) X(t)\cdot\beta
+$$
+
+where the prior on $\beta$ is normaly distributed: $\beta \sim \text{Normal}(0,\sigma^2)$.
+
+
 ## Fourier series
 
+TBF
+
+- recall how is an element in an vector space is represented in a basis
+- the functions $e_k(x):=\exp(\frac{2\pi ikx}{P})$ is a basis of a (dense) subspace in the vector space of $P$ periodic functions
+- the basis functions $e_k$ can be expressed as a function in $\sin$ and $\cos$
+- convergence of Fourier series
+
 ## "Holidays and Events"
+TBF
 
 # Stan model and fitting
 
