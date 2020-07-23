@@ -371,12 +371,30 @@ y(t) = g(t) + s(t) + h(t) + \epsilon_t.
 \]</span></p>
 <p>Where</p>
 <ul>
-<li><span class="math inline">\(g(t)\)</span> is the trend function,</li>
-<li><span class="math inline">\(s(t)\)</span> represents periodical changes and</li>
-<li><span class="math inline">\(h(t)\)</span> represents holiday effects, these are irregular schedules over one or more days (for example eastern happen on thhe sunday of the first full moon in spring)</li>
+<li>g(t) is the trend function,</li>
+<li>s(t) represents periodical changes and</li>
+<li>h(t) represents holiday effects, these are irregular schedules over one or more days (for example eastern happen on thhe sunday of the first full moon in spring)</li>
 </ul>
 <p>Each function has some parameters and the entire model can be expressed in a few lines of Stan code. Instead of Marcov chain Monte Carlo methods for fitting they using penalized maximum likelihood estimation with optimization (L-BFGS).</p>
-<p>We refer to the slides and the talk for more details.</p>
+<p>We explain how the trend, seasonal model and the holiday effects are modeled and how a Stan model is fitted.</p>
+<p>In future talks we look at the following questions:</p>
+<ul>
+<li>how can time dependet carrying capacity be determined automatically ?</li>
+<li>how outliers are handeled by prophet ?</li>
+<li>how additional regressors are included ?</li>
+<li>Introduction to:
+<ul>
+<li>Marcov chain Monte Carlo, in particular No-U-Turn-Sampler (NUTS)<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
+<li>penalized maximum likelihood estimation with optimization (L-BFGS)<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></li>
+</ul></li>
+</ul>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="http://www.stat.columbia.edu/~gelman/research/published/nuts.pdf" class="uri">http://www.stat.columbia.edu/~gelman/research/published/nuts.pdf</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>Fletcher, Practical Methods of Optimization<a href="#fnref2" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
 
 
 
