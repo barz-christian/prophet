@@ -43,26 +43,28 @@ $$
 
 - $y(t)$ target
 - $g(t)$ trend function
-- $s(t)$ Foruier serie for periodic changes
+- $s(t)$ seasonal model
 - $h(t)$ represents holiday effects, i.e. irregular schedules over one or more days
 - $\epsilon_t$ error term (not accomodated by the model)
 
 ## The trend model
 
-Trend can be modeled with
+Trend can be modeled by
 
 - saturated growth model
 - piecewise linear model
 
 ## Nonlinear Saturating growth (basic)
 
+A basic logistic growth model is given by
 $$
 g(t) = \frac{C}{1+exp(-k(t-m))}
 $$
+where 
 
-- $C$ carrying capacity (upper bound)
-- $k$ growth rate
-- $m$ offset parameter
+- $C$ is the carrying capacity (upper bound)
+- $k$ is the growth rate
+- $m$ is an offset parameter
 
 
 ## Nonlinear Saturating growth (time dependent parameters)
@@ -80,7 +82,7 @@ TBA - this is not explained in the non reviewed paper
 
 let $s_1,\ldots,s_n$ be change points (time stamps).
 
-define $\delta\in \mathbb{R}^n$ (vector of rate adjustments)
+define $\delta\in \mathbb{R}^n$ (vector of growth rate adjustments)
 
 define growth rate at time $t$ by
 $$
@@ -101,27 +103,36 @@ $$
 then rate at time $t$ is given by
 
 $$
-k(t) := a(t)^T\delta
+k(t) := k + a(t)^T\delta
 $$
 
-## Nonlinear Saturating growth (non constant growth rate - mathematically correct)
+## Nonlinear Saturating growth (non constant growth rate - mathematically correct 2)
 
-The offset parameter $m$ is than adjusted according to the change points by a formula:
+The offset parameter $m$ is than adjusted according to the change points by:
 $$
-\gamma:=f(s,m,k,\delta).
+\gamma_i := \left( s_j - m -\sum_{l<j}\gamma_j\right)\left(1-\frac{k+\sum_{l<j}\delta_l}{k+\sum_{l\leq j}\delta_l} \right)
 $$
+
+## Nonlinear Saturating growth (non constant growth rate - mathematically correct 3)
+
+
+
 Putting all together we recieve :
 
 $$
-g(t) = \frac{C(t)}{1+\exp(-(k+a(t)^T\delta)(t-(m+a(t)^T\gamma)))}
+\begin{aligned}
+g(t) &= \frac{C(t)}{1+exp(-k(t)(t-m(t))} \\
+     &= \frac{C(t)}{1+\exp(-(k+a(t)^T\delta)(t-(m+a(t)^T\gamma)))}
+\end{aligned}
 $$
+
 
 ## Linear trend with Changepoints
 
 using the change points from above a piecewise linear model is given by
 
 $$
-g(t)  :=  (k+a(t)^T\delta)*t +(m+a(t)^T\gamma)
+g(t) :=  (k+a(t)^T \delta)*t +(m+a(t)^T\gamma)
 $$
 
 ## Automatic changepoint selection
