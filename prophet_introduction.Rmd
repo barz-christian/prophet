@@ -4,6 +4,7 @@ author: "Christian Barz"
 date: "`r lubridate::today()`"
 output:
   beamer_presentation:
+    incremental: true
     theme: "Berlin"
     colortheme: "default"
     toc: true
@@ -13,13 +14,13 @@ output:
 
 # Prophet's goals and alternative
 ## Prophet library
-The Prophet library^[Taylor, Letham, Forecasting at scale, 2017, The American Statistician] is a model and a framework.
+The Prophet library^[Taylor, Letham, Forecasting at scale, 2017, The American Statistician] is a model and a framework, that targets
 
-- targets at non-experts with background business knowledge
-- less knowledge about time series is required
-- easy to configure
-- easily interpretable parameters
-- flexible for a wide range of business problems
+ - non-experts with background business knowledge
+ - less knowledge about time series is required
+ - easy to configure (analyst in the loop)
+ - easily interpretable parameters
+ - flexible for a wide range of business problems
 
 ## Alternative 
 
