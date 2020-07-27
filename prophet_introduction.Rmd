@@ -76,7 +76,10 @@ where
 
 ## Nonlinear Saturating growth (time dependent carrying capacity)
 
-TBA - this is not explained in the non reviewed paper
+TBA 
+
+- this is not explained in the paper
+- In the documentation of the prophet library the carrying capacity is a parameter (vector of same length as the data/ future time frame)
 
 ## Nonlinear Saturating growth (non constant growth rate - idea)
 
@@ -138,7 +141,7 @@ g(t) &= k(t)\cdot t + m(t) \\
 \end{aligned}
 $$
 
-## To do 
+## Interlude Bayes theorem
 
 - We have to fit the unknown parameters $k$, $m$, and $\delta$
 - recall Bayes theorem
@@ -159,7 +162,7 @@ $$
 $$
 
 
-![LaPlace density function from wikipedia, here $\sigma = \tau$]("./data/Laplace-verteilung.png"){width=150px}
+![LaPlace density function taken from wikipedia, here $\sigma = \tau$]("./data/Laplace-verteilung.png"){width=150px}
 
 
 
